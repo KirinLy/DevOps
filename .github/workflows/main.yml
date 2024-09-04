@@ -53,6 +53,10 @@ jobs:
       with:
         version: 'latest'
         project_id:  ${{ secrets.GCP_PROJECT_ID }}
+        
+    - name: Configure kubectl
+      run: |
+        gcloud container clusters get-credentials ${{ secrets.GKE_CLUSTER_NAME }}  --project ${{ secrets.GCP_PROJECT_ID }}
 
     - name: Deploy to GKE
       run: |
