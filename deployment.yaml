@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mywebapp-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mywebapp
+  template:
+    metadata:
+      labels:
+        app: mywebapp
+    spec:
+      containers:
+      - name: mywebapp
+        image: gcr.io/${{ secrets.GCP_PROJECT_ID }}/mywebapp:$GITHUB_SHA
+        ports:
+        - containerPort: 80
