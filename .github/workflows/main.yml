@@ -69,8 +69,8 @@ jobs:
    
     - name: Apply Kubernetes Configurations
       run: |
-        kubectl apply -f k8s/deployment.yaml
-        kubectl apply -f k8s/service.yaml
+        kubectl apply -f src/MyWebApp/k8s/deployment.yaml
+        kubectl apply -f src/MyWebApp/k8s/service.yaml
     
     - name: Deploy to GKE
       run: |
