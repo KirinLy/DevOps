@@ -16,7 +16,7 @@ jobs:
       uses: docker/setup-buildx-action@v1
 
     - name: Log in to Google Container Registry
-      run: docker login -u _json_key --password-stdin https://gcr.io < $GCP_SERVICE_ACCOUNT_KEY
+      run: docker login -u _json_key --password-stdin https://gcr.io <  ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
       env:
         GCP_SERVICE_ACCOUNT_KEY: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
 
