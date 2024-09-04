@@ -40,7 +40,9 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-
+    env:
+      GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+      
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -76,7 +78,7 @@ jobs:
         ls -R
     - name: Apply Kubernetes Configurations
       run: |
-        kubectl apply -f deployment.yaml
+        envsubst < src/MyWebApp/k8s/deployment.yaml | kubectl apply -f -
         kubectl apply -f service.yaml
     
     - name: Deploy to GKE
