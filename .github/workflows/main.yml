@@ -9,8 +9,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      GCP_SERVICE_ACCOUNT_KEY: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}  # Giả sử biến này được khai báo ở nơi khác
-      GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}  # Giả sử biến này được khai báo ở nơi khác
+      GCP_SERVICE_ACCOUNT_KEY: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }} 
+      GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
