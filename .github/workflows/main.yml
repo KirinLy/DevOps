@@ -23,7 +23,7 @@ jobs:
 
     - name: Build and Push Docker image
       run: |
-        docker build -t gcr.io/$GCP_PROJECT_ID/mywebapp:$GITHUB_SHA src/MyWebApp/Dockerfile .
+        docker build -t gcr.io/$GCP_PROJECT_ID/mywebapp:$GITHUB_SHA src/MyWebApp/
         docker push gcr.io/$GCP_PROJECT_ID/mywebapp:$GITHUB_SHA
 
   deploy:
