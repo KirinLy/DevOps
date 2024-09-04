@@ -66,7 +66,12 @@ jobs:
     - name: Configure kubectl
       run: |
         gcloud container clusters get-credentials ${{ secrets.GKE_CLUSTER_NAME }} --zone us-central1-a --project ${{ secrets.GCP_PROJECT_ID }}
-
+   
+    - name: Apply Kubernetes Configurations
+      run: |
+        kubectl apply -f k8s/deployment.yaml
+        kubectl apply -f k8s/service.yaml
+    
     - name: Deploy to GKE
       run: |
         kubectl set image deployment/mywebapp-deployment mywebapp=gcr.io/$GCP_PROJECT_ID/mywebapp:$GITHUB_SHA
