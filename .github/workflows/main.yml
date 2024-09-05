@@ -78,7 +78,7 @@ jobs:
         ls -R
     - name: Apply Kubernetes Configurations
       run: |
-        envsubst < src deployment.yaml | kubectl apply -f -
+        envsubst < deployment.yaml | kubectl apply -f -
         kubectl apply -f service.yaml
     
     - name: Deploy to GKE
